@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRef } from 'react';
 import { AiOutlineShoppingCart, AiFillCloseCircle, AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 import { BsFillBagCheckFill } from 'react-icons/bs';
+import { MdAccountCircle } from 'react-icons/md';
 
 const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
   console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
@@ -38,8 +39,9 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
           <Link href={'/stickers'}><a href="#"><li>Stickers</li></a></Link>
         </ul>
       </div>
-      <div onClick={toggleCart} className="absolute cursor-pointer cart right-0 top-4 mx-5">
-        <AiOutlineShoppingCart className='text-xl md:text-2xl' />
+      <div className="flex absolute cursor-pointer cart right-0 top-4 mx-5">
+        <Link href={'/login'}><MdAccountCircle className='text-xl md:text-2xl mx-2' /></Link>
+        <AiOutlineShoppingCart  onClick={toggleCart} className='text-xl md:text-2xl' />
       </div>
 
       {/* SideBar */}

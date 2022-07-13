@@ -7,7 +7,7 @@ const Signup = () => {
     <div className="max-w-md w-full space-y-8">
       <div>
         <img className="mx-auto h-12 w-auto" src="/codeswearcircle.png" alt="Workflow" />
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Signup for an your account</h2>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Signup for an account</h2>
         <p className="mt-2 text-center text-sm text-gray-600">
           Or
           <Link href={'/login'}><a href="#" className="font-medium text-pink-600 hover:text-pink-500"> Login </a></Link>

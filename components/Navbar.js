@@ -8,7 +8,6 @@ import { BsFillBagCheckFill } from 'react-icons/bs';
 import { MdAccountCircle } from 'react-icons/md';
 
 const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
-  // console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
   const toggleCart = () => {
     if (ref.current.classList.contains('translate-x-full')) {
       ref.current.classList.remove('translate-x-full')
@@ -33,10 +32,10 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
       </div>
       <div className="nav">
         <ul className='flex items-center space-x-6 font-bold md:text-md'>
-          <Link href={'/tshirts'}><a href="#"><li>Tshirts</li></a></Link>
-          <Link href={'/hoodies'}><a href="#"><li>Hoodies</li></a></Link>
-          <Link href={'/mugs'}><a href="#"><li>Mugs</li></a></Link>
-          <Link href={'/stickers'}><a href="#"><li>Stickers</li></a></Link>
+          <Link href={'/tshirts'}><a href="#"><li className='hover:text-pink-600'>Tshirts</li></a></Link>
+          <Link href={'/hoodies'}><a href="#"><li className='hover:text-pink-600'>Hoodies</li></a></Link>
+          <Link href={'/mugs'}><a href="#"><li className='hover:text-pink-600'>Mugs</li></a></Link>
+          <Link href={'/stickers'}><a href="#"><li className='hover:text-pink-600'>Stickers</li></a></Link>
         </ul>
       </div>
       <div className="flex absolute cursor-pointer cart right-0 top-4 mx-5">
@@ -45,7 +44,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
       </div>
 
       {/* SideBar */}
-      <div ref={ref} className={`z-10 w-72 h-[100vh] sideCart absolute top-0 right-0 px-8 py-10 bg-pink-100 transform transition-transform
+      <div ref={ref} className={`z-10 w-72 h-[100vh] sideCart overflow-y-scroll absolute top-0 right-0 px-8 py-10 bg-pink-100 transform transition-transform
        ${Object.keys(cart).length !== 0 ? 'translate-x-0' : 'translate-x-full'}`}>
         <h2 className='font-bold text-xl text-center '>Shopping Cart</h2>
         <span onClick={toggleCart} className="absolute top-5 right-2 cursor-pointer text-2xl text-pink-500"><AiFillCloseCircle /></span>
@@ -54,7 +53,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
           {Object.keys(cart).map((k) => {
             return <li key={k}>
               <div className="item flex my-5">
-                <div className='w-2/3 font-semibold'>{cart[k].name}</div>
+                <div className='w-2/3 font-semibold'>{cart[k].name} ({cart[k].size}/{cart[k].variant})</div>
                 <div className='flex items-center justify-center w-1/3 text-sm'>
                   <AiFillMinusCircle
                     onClick={() => { removeFromCart(k, 1, cart[k].price, cart[k].name, cart[k].size, cart[k].variant) }}
